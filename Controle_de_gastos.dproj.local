@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/03/08 07:44:11.000.866,=C:\Users\dario\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/03/08 07:49:50.000.313,C:\Users\dario\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\dario\OneDrive\Documentos\Embarcadero\Studio\Projects\Controle de gastos\UnitLogin.pas</Transaction>
+    <Transaction>2024/03/08 07:49:50.000.313,C:\Users\dario\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\dario\OneDrive\Documentos\Embarcadero\Studio\Projects\Controle de gastos\UnitLogin.fmx</Transaction>
+    <Transaction>2024/03/08 18:07:36.000.681,C:\Users\dario\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\dario\OneDrive\Documentos\Embarcadero\Studio\Projects\Controle de gastos\Units\managePhotos.dproj</Transaction>
+    <Transaction>2024/03/08 20:47:15.000.783,C:\Users\dario\OneDrive\Documentos\Embarcadero\Studio\Projects\Controle de gastos\Controle_de_gastos.dproj=C:\Users\dario\OneDrive\Documentos\Embarcadero\Studio\Projects\Controle de gastos\Units\managePhotos.dproj</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile Android64="LMX4307TY5SGVW8T9D" Android="LMX4307TY5SGVW8T9D"/>
+	</ActiveMobileDevice>
+</BorlandProject>

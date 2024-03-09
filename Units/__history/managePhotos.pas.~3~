@@ -1,0 +1,72 @@
+unit managePhotos;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts,
+  FMX.MediaLibrary.Actions, System.Actions, FMX.ActnList, FMX.StdActns, System.Permissions;
+
+type
+  TForm1 = class(TForm)
+    Layout12: TLayout;
+    Label4: TLabel;
+    img_fotos: TImage;
+    img_library: TImage;
+    Layout1: TLayout;
+    Circle1: TCircle;
+    ActionList1: TActionList;
+    act_photo_camera: TTakePhotoFromCameraAction;
+    act_photo_library: TTakePhotoFromLibraryAction;
+    procedure FormActivate(Sender: TObject);
+    procedure img_fotosClick(Sender: TObject);
+  private
+    { Private declarations }
+    {$IFDEF ANDROID}
+    PermissaoCamera, PermissaoReadStorage, PermissaoWriteStorage : string;
+    {$ENDIF}
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.fmx}
+
+uses
+FMX.DialogService,
+{$IFDEF ANDROID}
+     Androidapi.Helpers, Androidapi.Jni.JavaTypes, Androidapi.Jni.Os
+{$ENDIF}
+;
+
+procedure TakePhotoPermissionRequestResult(
+                                 Sender:TObject;
+                                 const Apermissions:TArray<string>;
+                                 const AGrantResults:TArray<TpermissionStatus>
+                                 );
+
+procedure TForm1.FormActivate(Sender: TObject);
+begin
+  PermissaoCamera:= JStringToString(TJManifest_permission.JavaClass.CAMERA);
+  {A declaração acima faz o mesmo que essa: PermissaoCamera:= 'android.permission.CAMERA'}
+  PermissaoReadStorage := JStringToString(TJManifest_permission.JavaClass.READ_EXTERNAL_STORAGE);
+  PermissaoWriteStorage := JStringToString(TJManifest_permission.JavaClass.WRITE_EXTERNAL_STORAGE);
+end;
+
+procedure TForm1.img_fotosClick(Sender: TObject);
+begin
+  {$IFDEF ANDROID}
+    PermissionsService.RequestPermissions([PermissaoCamera,
+                                           PermissaoReadStorage,
+                                           PermissaoWriteStorage],
+                                           TakePhotoPermissionRequestResult
+                                           );
+  {$ENDINF}
+end;
+
+end.
